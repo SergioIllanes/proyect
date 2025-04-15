@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnico Superior en Telecomunicaciones - INTJEM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a, #60a5fa);
+        }
+        .gradient-accent {
+            background: linear-gradient(90deg, #1e40af, #93c5fd);
+        }
+        .pastel-bg {
+            background: linear-gradient(135deg, #dbeafe, #f0f9ff);
+        }
+        .pastel-accent {
+            background: linear-gradient(90deg, #bae6fd, #e0f2fe);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .shadow-accent {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .border-accent {
+            border: 2px solid #1e40af;
+        }
+        .animate-pulse:hover {
+            animation: pulse 1.5s infinite;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        .custom-table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .custom-table th, .custom-table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: left;
+        }
+        .custom-table th {
+            background-color: #1e40af;
+            color: white;
+            font-weight: bold;
+        }
+        .custom-table td {
+            background-color: #f9fafb;
+        }
+        .custom-table tr:nth-child(even) td {
+            background-color: #f1f5f9;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+        .dropdown.active .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #1e3a8a, #60a5fa);
+                padding: 1rem;
+                border-top: 2px solid #1e40af;
+            }
+            .grid-cols-2, .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+            .text-5xl {
+                font-size: 2.5rem;
+            }
+            .text-3xl {
+                font-size: 1.5rem;
+            }
+            .custom-table th, .custom-table td {
+                padding: 8px;
+                font-size: 14px;
+            }
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    </style>
+</head>
+<body class="bg-blue-50 font-sans">
+    <!-- Navbar -->
+    <nav class="gradient-bg p-4 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold">INTJEM</a>
+            <button class="sm:hidden text-2xl focus:outline-none" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-menu hidden sm:flex sm:space-x-8">
+                <a href="index.html" class="hover:text-blue-100 transition font-medium">Inicio</a>
+                <div class="dropdown relative">
+                    <a href="#quienes-somos" class="hover:text-blue-100 transition font-medium flex items-center dropdown-toggle">Quiénes Somos <i class="fas fa-chevron-down ml-1"></i></a>
+                    <div class="dropdown-menu bg-white text-gray-800 shadow-lg rounded-lg mt-2 w-48">
+                        <a href="historia.html" class="block px-4 py-2 hover:bg-blue-100">Historia</a>
+                        <a href="plantelDoc.html" class="block px-4 py-2 hover:bg-blue-100">Plantel Docente</a>
+                    </div>
+                </div>
+                <div class="dropdown relative">
+                    <a href="#carreras" class="hover:text-blue-100 transition font-medium flex items-center dropdown-toggle">Nuestras Carreras <i class="fas fa-chevron-down ml-1"></i></a>
+                    <div class="dropdown-menu bg-white text-gray-800 shadow-lg rounded-lg mt-2 w-48">
+                        <a href="telecomunicaciones.html" class="block px-4 py-2 hover:bg-blue-100">Telecomunicaciones</a>
+                        <a href="sistemas.html" class="block px-4 py-2 hover:bg-blue-100">Sistemas Informáticos</a>
+                        <a href="secretariado.html" class="block px-4 py-2 hover:bg-blue-100">Secretariado Ejecutivo</a>
+                    </div>
+                </div>
+                <a href="contactos.html" class="hover:text-blue-100 transition font-medium">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative bg-cover bg-center py-24 sm:py-32 text-center parallax" style="background-image: url('https://images.unsplash.com/photo-1516321310764-3f51c40a1aa7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+        <div class="gradient-accent bg-opacity-75 py-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 animate-fade-in">Técnico Superior en Telecomunicaciones</h1>
+            <p class="text-lg sm:text-2xl text-white animate-slide-up">Conecta el futuro con habilidades técnicas de vanguardia</p>
+        </div>
+    </section>
+
+    <!-- Detalle Carrera -->
+    <section class="py-16 sm:py-24 pastel-bg">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl sm:text-5xl font-bold text-center mb-12 sm:mb-16 text-blue-900 animate-fade-in">¿Qué es Telecomunicaciones?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+                <div class="bg-pastel-accent p-8 sm:p-10 rounded-2xl shadow-accent card-hover transition duration-300 border-accent">
+                    <h3 class="text-xl sm:text-3xl font-semibold mb-6 text-blue-800">Modalidad</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        <strong>Duración:</strong> 3 años (3600 horas)<br>
+                        <strong>Modalidad:</strong> Presencial<br>
+                        <strong>Horario:</strong> Mañana o tarde<br>
+                        <strong>Prácticas:</strong> En empresas líderes de telecomunicaciones<br>
+                        <strong>Certificación:</strong> Técnico Superior reconocido por el Ministerio de Educación
+                    </p>
+                </div>
+                <div class="bg-pastel-accent p-8 sm:p-10 rounded-2xl shadow-accent card-hover transition duration-300 border-accent">
+                    <h3 class="text-xl sm:text-3xl font-semibold mb-6 text-blue-800">Objetivo</h3>
+                    <p class="text-gray-700 leading-relaxed">Formar profesionales capaces de diseñar, instalar, mantener y gestionar sistemas de telecomunicaciones, aplicando tecnologías modernas como fibra óptica, redes 5G y sistemas satelitales, con un enfoque en innovación y calidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Descripción de la Carrera -->
+    <section class="py-16 sm:py-24 bg-blue-50">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl sm:text-5xl font-bold text-center mb-12 sm:mb-16 text-blue-900 animate-fade-in">¿Qué Hace un Técnico en Telecomunicaciones?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent">
+                    <i class="fas fa-satellite-dish text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Instalación de Redes</h3>
+                    <p class="text-gray-600">Configura e instala redes de comunicación, incluyendo cableado estructurado, fibra óptica y antenas para garantizar conectividad eficiente.</p>
+                </div>
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent">
+                    <i class="fas fa-tools text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Mantenimiento</h3>
+                    <p class="text-gray-600">Diagnostica y repara fallos en sistemas de telecomunicaciones, asegurando un rendimiento óptimo y minimizando interrupciones.</p>
+                </div>
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent">
+                    <i class="fas fa-network-wired text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Gestión de Sistemas</h3>
+                    <p class="text-gray-600">Administra redes y equipos de comunicación, implementando soluciones para mejorar la seguridad y la eficiencia de las telecomunicaciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades y Competencias -->
+    <section class="py-16 sm:py-24 pastel-bg">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl sm:text-5xl font-bold text-center mb-12 sm:mb-16 text-blue-900 animate-fade-in">Habilidades que Desarrollarás</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+                <div class="bg-pastel-accent p-8 sm:p-10 rounded-2xl shadow-accent card-hover transition duration-300 border-accent">
+                    <h3 class="text-xl sm:text-3xl font-semibold mb-6 text-blue-800">Técnicas</h3>
+                    <ul class="text-gray-700 list-disc list-inside leading-relaxed">
+                        <li>Instalación y configuración de redes LAN/WAN</li>
+                        <li>Manejo de tecnologías de fibra óptica y 5G</li>
+                        <li>Diagnóstico y solución de problemas en redes</li>
+                        <li>Uso de herramientas de medición y análisis</li>
+                    </ul>
+                </div>
+                <div class="bg-pastel-accent p-8 sm:p-10 rounded-2xl shadow-accent card-hover transition duration-300 border-accent">
+                    <h3 class="text-xl sm:text-3xl font-semibold mb-6 text-blue-800">Personales</h3>
+                    <ul class="text-gray-700 list-disc list-inside leading-relaxed">
+                        <li>Trabajo en equipo y comunicación efectiva</li>
+                        <li>Resolución de problemas bajo presión</li>
+                        <li>Adaptación a nuevas tecnologías</li>
+                        <li>Compromiso ético y profesional</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Habilidades Adquiridas -->
+            <h2 class="text-3xl sm:text-5xl font-bold text-center mt-16 mb-12 sm:mb-16 text-blue-900 animate-fade-in">Habilidades Adquiridas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-tools text-4xl text-blue-600 mr-3"></i>
+                        <h3 class="text-lg sm:text-2xl font-semibold text-blue-800">Instalaciones</h3>
+                    </div>
+                    <p class="text-gray-600">Experiencias prácticas y teóricas para desarrollar proyectos de instalaciones de sistemas de telecomunicaciones.</p>
+                </div>
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-briefcase text-4xl text-blue-600 mr-3"></i>
+                        <h3 class="text-lg sm:text-2xl font-semibold text-blue-800">Eficiencia Laboral</h3>
+                    </div>
+                    <p class="text-gray-600">Estímular las instalaciones de sistemas de telecomunicaciones, cumpliendo la normativa vigente y los requerimientos del cliente.</p>
+                </div>
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shield-alt text-4xl text-blue-600 mr-3"></i>
+                        <h3 class="text-lg sm:text-2xl font-semibold text-blue-800">Calidad y Seguridad Industrial</h3>
+                    </div>
+                    <p class="text-gray-600">Supervisar el cumplimiento de los requerimientos y asegurar las condiciones de calidad y seguridad.</p>
+                </div>
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-4xl text-blue-600 mr-3"></i>
+                        <h3 class="text-lg sm:text-2xl font-semibold text-blue-800">Programación</h3>
+                    </div>
+                    <p class="text-gray-600">Programa y desarrolla aplicaciones de red, utilizando tecnologías de Internet.</p>
+                </div>
+            </div>
+
+            <!-- Síntesis del Plan de Estudios -->
+            <h2 class="text-3xl sm:text-5xl font-bold text-center mt-16 mb-12 sm:mb-16 text-blue-900 animate-fade-in">Síntesis del Plan de Estudios</h2>
+            <div class="overflow-x-auto">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Nº</th>
+                            <th>CÓDIGO</th>
+                            <th>ÁREAS DE SABERES Y CONOCIMIENTOS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>MAT-101</td>
+                            <td>Matemática</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>TSO-102</td>
+                            <td>Taller de Sistemas Operativos I</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>FEE-103</td>
+                            <td>Fundamentos de Electricidad y Electrónica</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>INA-104</td>
+                            <td>Informática Aplicada</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>ING-105</td>
+                            <td>Inglés Técnico I</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>THW-106</td>
+                            <td>Taller de Hardware I</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>TER-107</td>
+                            <td>Tecnología de Redes I</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>TEL-108</td>
+                            <td>Telecomunicaciones I</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>PRG-109</td>
+                            <td>Programación</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oportunidades Laborales -->
+    <section class="py-16 sm:py-24 bg-blue-50">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl sm:text-5xl font-bold text-center mb-12 sm:mb-16 text-blue-900 animate-fade-in">Oportunidades Laborales</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent animate-pulse">
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Empresas de Telecomunicaciones</h3>
+                    <p class="text-gray-600">Trabaja en compañías como ENTEL, TIGO o AXS, instalando y manteniendo redes de comunicación a gran escala.</p>
+                </div>
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent animate-pulse">
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Sector Público</h3>
+                    <p class="text-gray-600">Colabora en instituciones gubernamentales para implementar soluciones de conectividad en áreas rurales y urbanas.</p>
+                </div>
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent animate-pulse">
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Emprendimiento</h3>
+                    <p class="text-gray-600">Inicia tu propio negocio ofreciendo servicios de instalación, mantenimiento o consultoría en telecomunicaciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-12 border-t-2 border-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
+            <p class="text-base sm:text-lg">© 2025 Instituto Técnico Jesús María. Todos los derechos reservados.</p>
+            <p class="mt-4">Oblitas y Pagador, Oruro, Bolivia | Tel: 25245400 | Email: info@intjem.edu.bo</p>
+            <div class="flex justify-center space-x-6 mt-6">
+                <a href="#" class="hover:text-blue-100"><i class="fab fa-facebook-f text-xl sm:text-2xl"></i></a>
+                <a href="#" class="hover:text-blue-100"><i class="fab fa-twitter text-xl sm:text-2xl"></i></a>
+                <a href="#" class="hover:text-blue-100"><i class="fab fa-instagram text-xl sm:text-2xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.classList.toggle('active');
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        }
+
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const menu = dropdown.querySelector('.dropdown-menu');
+
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isActive = dropdown.classList.contains('active');
+                
+                document.querySelectorAll('.dropdown').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('active');
+                });
+
+                dropdown.classList.toggle('active');
+
+                if (isActive) {
+                    window.location.href = toggle.getAttribute('href');
+                }
+            });
+
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    dropdown.classList.remove('active');
+                    if (window.innerWidth < 768) {
+                        document.querySelector('.nav-menu').classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            const isDropdown = e.target.closest('.dropdown');
+            if (!isDropdown) {
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+</html>

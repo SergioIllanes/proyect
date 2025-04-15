@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Técnico Jesús María</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a, #60a5fa);
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+        .dropdown.active .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .footer-bg {
+            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+        }
+        .footer-link:hover {
+            color: #93c5fd;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #1e3a8a, #60a5fa);
+                padding: 1rem;
+            }
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                opacity: 1;
+                visibility: visible;
+            }
+            .logo {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-blue-50 font-sans">
+    <!-- Navbar -->
+    <nav class="gradient-bg p-4 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold">INTJEM</a>
+            <button class="sm:hidden text-2xl focus:outline-none" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-menu hidden sm:flex sm:space-x-8">
+                <a href="index.html" class="hover:text-blue-100 transition font-medium">Inicio</a>
+                <div class="dropdown relative group">
+                    <a href="#quienes-somos" class="hover:text-blue-100 transition font-medium flex items-center dropdown-toggle">Quiénes Somos <i class="fas fa-chevron-down ml-1"></i></a>
+                    <div class="dropdown-menu bg-white text-gray-800 shadow-lg rounded-lg mt-2 w-48">
+                        <a href="historia.html" class="block px-4 py-2 hover:bg-blue-100">Historia</a>
+                        <a href="plantelDoc.html" class="block px-4 py-2 hover:bg-blue-100">Plantel Docente</a>
+                    </div>
+                </div>
+                <div class="dropdown relative group">
+                    <a href="#carreras" class="hover:text-blue-100 transition font-medium flex items-center dropdown-toggle">Nuestras Carreras <i class="fas fa-chevron-down ml-1"></i></a>
+                    <div class="dropdown-menu bg-white text-gray-800 shadow-lg rounded-lg mt-2 w-48">
+                        <a href="telecomunicaciones.html" class="block px-4 py-2 hover:bg-blue-100">Telecomunicaciones</a>
+                        <a href="sistemas.html" class="block px-4 py-2 hover:bg-blue-100">Sistemas Informáticos</a>
+                        <a href="secretariado.html" class="block px-4 py-2 hover:bg-blue-100">Secretariado Ejecutivo</a>
+                    </div>
+                </div>
+                <a href="contactos.html" class="hover:text-blue-100 transition font-medium">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- History Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Reseña Histórica</h2>
+            <p class="text-center text-gray-600 mb-12">Historia de nuestro Instituto Técnico Jesús María</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-semibold mb-2">Religiosas de Jesús María</h3>
+                    <p class="text-gray-500 mb-4"><i class="fa fa-clock-o"></i> 1990</p>
+                    <p class="text-gray-700">La Congregación de Religiosas de “Jesús - María” abrió el instituto técnico para ofrecer una profesión intermedia entre el bachillerato y la universidad, enfocándose en estudiantes de colegios fiscales, Fe y Alegría y convenio. Con recursos propios, se inició el equipamiento en enero de 1990, adquiriendo ordenadores, máquinas de escribir, mobiliario y materiales didácticos, completándose en octubre de 1990 en ambientes del colegio “Jesús María”.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-semibold mb-2">Educación Popular de Fe y Alegría</h3>
+                    <p class="text-gray-500 mb-4"><i class="fa fa-clock-o"></i> 1991</p>
+                    <p class="text-gray-700">En 1990, se tramitó la Resolución Ministerial para el funcionamiento legal del Centro de Estudios Técnicos, que ofrecía formación en tres semestres. Las actividades comenzaron el 16 de julio de 1991 con carreras como Secretariado Ejecutivo Bilingüe Computacional, Programación de Computadoras y Alta Peluquería. En 1993, se pasó a un sistema anualizado para cumplir con exigencias del mercado laboral y del Ministerio de Educación.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-semibold mb-2">INSFA</h3>
+                    <p class="text-gray-500 mb-4"><i class="fa fa-clock-o"></i> 1997</p>
+                    <p class="text-gray-700">En 1993, se legalizó el funcionamiento con la Resolución Ministerial No. 796, cambiando el nombre a Instituto Superior Fe y Alegría – INSFA. En 1997, el instituto se separó de Fe y Alegría, funcionando bajo la Congregación de “Jesús María”. Se cerró la carrera de Alta Peluquería y se consolidó Análisis de Sistemas, Nivel Técnico Superior, con ingreso exclusivo para Técnicos Programadores.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-semibold mb-2">INSJEM</h3>
+                    <p class="text-gray-500 mb-4"><i class="fa fa-clock-o"></i> 1999</p>
+                    <p class="text-gray-700">En 1999, se legalizó el nombre Instituto Superior “Jesús – María” – INSJEM con la Resolución Ministerial No. 416/99. Se ofrecía titulación en dos años para Secretariado Ejecutivo y Programación de Computadoras (Técnico Medio), y un año adicional para Análisis de Sistemas (Técnico Superior), con requisitos de exámenes o proyectos de grado según la carrera.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-semibold mb-2">INTJEM</h3>
+                    <p class="text-gray-500 mb-4"><i class="fa fa-clock-o"></i> 2012</p>
+                    <p class="text-gray-700">Desde 2012, los egresados han tenido gran aceptación en instituciones públicas y privadas. Se adoptó una curricula del Ministerio de Educación para Técnico Superior en Secretariado Ejecutivo y Sistemas Informáticos, con 3600 horas de estudio. El nombre cambió a Instituto Técnico Jesús – María – INTJEM, consolidando su prestigio a nivel departamental y nacional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Empezar</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link transition">Iniciar Sesión</a></li>
+                        <li><a href="#" class="footer-link transition">Admisión</a></li>
+                        <li><a href="#carreras" class="footer-link transition">Nuestras Carreras</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Apoyo</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link transition">Preguntas Frecuentes</a></li>
+                        <li><a href="#" class="footer-link transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link transition">Términos de Servicio</a></li>
+                        <li><a href="#" class="footer-link transition">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contactos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#contacto" class="footer-link transition">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-youtube text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.classList.toggle('active');
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        }
+
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const menu = dropdown.querySelector('.dropdown-menu');
+
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isActive = dropdown.classList.contains('active');
+                
+                document.querySelectorAll('.dropdown').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('active');
+                });
+
+                dropdown.classList.toggle('active');
+
+                if (isActive) {
+                    window.location.href = toggle.getAttribute('href');
+                }
+            });
+
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    dropdown.classList.remove('active');
+                    if (window.innerWidth < 768) {
+                        document.querySelector('.nav-menu').classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            const isDropdown = e.target.closest('.dropdown');
+            if (!isDropdown) {
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos - INTJEM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a, #60a5fa);
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+        .dropdown.active .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+        .footer-bg {
+            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+        }
+        .footer-link:hover {
+            color: #93c5fd;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #1e3a8a, #60a5fa);
+                padding: 1rem;
+            }
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="gradient-bg p-4 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold">INTJEM</a>
+            <button class="sm:hidden text-2xl focus:outline-none" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-menu hidden sm:flex sm:space-x-8">
+                <a href="index.html" class="hover:text-blue-100 transition font-medium">Inicio</a>
+                <div class="dropdown relative">
+                    <a href="#quienes-somos" class="hover:text-blue-100 transition font-medium flex items-center dropdown-toggle">Quiénes Somos <i class="fas fa-chevron-down ml-1"></i></a>
+                    <div class="dropdown-menu bg-white text-gray-800 shadow-lg rounded-lg mt-2 w-48">
+                        <a href="historia.html" class="block px-4 py-2 hover:bg-blue-100">Historia</a>
+                        <a href="plantelDoc.html" class="block px-4 py-2 hover:bg-blue-100">Plantel Docente</a>
+                    </div>
+                </div>
+                <div class="dropdown relative">
+                    <a href="#carreras" class="hover:text-blue-100 transition font-medium flex items-center dropdown-toggle">Nuestras Carreras <i class="fas fa-chevron-down ml-1"></i></a>
+                    <div class="dropdown-menu bg-white text-gray-800 shadow-lg rounded-lg mt-2 w-48">
+                        <a href="telecomunicaciones.html" class="block px-4 py-2 hover:bg-blue-100">Telecomunicaciones</a>
+                        <a href="sistemas.html" class="block px-4 py-2 hover:bg-blue-100">Sistemas Informáticos</a>
+                        <a href="secretariado.html" class="block px-4 py-2 hover:bg-blue-100">Secretariado Ejecutivo</a>
+                    </div>
+                </div>
+                <a href="contactos.html" class="hover:text-blue-100 transition font-medium">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-800">Contáctanos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-gray-900 text-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-6">Envíanos un mensaje</h3>
+                    <div>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-300 mb-2">Apellidos y Nombres</label>
+                            <input type="text" id="name" name="name" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white" placeholder="Tu nombre">
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-300 mb-2">Teléfono Celular (WhatsApp)</label>
+                            <input type="tel" id="phone" name="phone" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white" placeholder="Tu número">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-300 mb-2">Correo electrónico</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white" placeholder="Tu correo">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-300 mb-2">Asunto</label>
+                            <input type="text" id="subject" name="subject" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white" placeholder="Asunto del mensaje">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-300 mb-2">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white" placeholder="Escribe tu mensaje"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded transition">Enviar</button>
+                    </div>
+                </div>
+                <!-- Map -->
+                <div class="rounded-lg shadow-lg overflow-hidden">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3828.388584674135!2d-67.1146932!3d-17.9707175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDU4JzE0LjYiUyA2N8KwMDYnNTMuNCJX!5e0!3m2!1ses!2sbo!4v1634567891234" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Empezar</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link transition">Iniciar Sesión</a></li>
+                        <li><a href="#" class="footer-link transition">Admisión</a></li>
+                        <li><a href="#carreras" class="footer-link transition">Nuestras Carreras</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Apoyo</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link transition">Preguntas Frecuentes</a></li>
+                        <li><a href="#" class="footer-link transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link transition">Términos de Servicio</a></li>
+                        <li><a href="#" class="footer-link transition">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contactos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contactos.html" class="footer-link transition">Contacto</a></li>
+                        <li>Oblitas y Pagador, Oruro, Bolivia</li>
+                        <li>Tel: 25245400</li>
+                        <li>Email: info@intjem.edu.bo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-youtube text-xl"></i></a>
+            </div>
+            <p class="text-center mt-8">© 2025 Instituto Técnico Jesús María. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.classList.toggle('active');
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        }
+
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const menu = dropdown.querySelector('.dropdown-menu');
+
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isActive = dropdown.classList.contains('active');
+                
+                document.querySelectorAll('.dropdown').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('active');
+                });
+
+                dropdown.classList.toggle('active');
+
+                if (isActive) {
+                    window.location.href = toggle.getAttribute('href');
+                }
+            });
+
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    dropdown.classList.remove('active');
+                    if (window.innerWidth < 768) {
+                        document.querySelector('.nav-menu').classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            const isDropdown = e.target.closest('.dropdown');
+            if (!isDropdown) {
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+</html>

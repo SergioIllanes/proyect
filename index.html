@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Técnico Jesús María</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a, #60a5fa);
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+        .dropdown.active .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+        .hero-bg {
+            background-image: url('fondo1.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.7), rgba(96, 165, 250, 0.7));
+            z-index: 1;
+        }
+        .logo {
+            max-width: 300px;
+            height: auto;
+            z-index: 2;
+        }
+        .pastel-bg {
+            background: linear-gradient(135deg, #dbeafe, #f0f9ff);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .shadow-accent {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .border-accent {
+            border: 2px solid #1e40af;
+        }
+        .career-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 3px solid #1e40af;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .thumbnail:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+        .convenio-logo {
+            max-width: 150px;
+            height: auto;
+        }
+        .footer-bg {
+            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+        }
+        .footer-link:hover {
+            color: #93c5fd;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #1e3a8a, #60a5fa);
+                padding: 1rem;
+                border-top: 2px solid #1e40af;
+            }
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                opacity: 1;
+                visibility: visible;
+            }
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            .logo {
+                max-width: 200px;
+            }
+            .career-logo {
+                width: 60px;
+                height: 60px;
+            }
+            .convenio-logo {
+                max-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-blue-50 font-sans">
+    <!-- Navbar -->
+    <nav class="gradient-bg p-4 text-white sticky top-0 z-50 shadow-lg border-b-2 border-gray-800">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold tracking-tight">INTJEM</a>
+            <button class="sm:hidden text-2xl focus:outline-none" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-menu hidden sm:flex sm:space-x-8">
+                <a href="#inicio" class="hover:text-blue-100 transition font-medium">Inicio</a>
+                <div class="dropdown relative group">
+                    <a href="#quienes-somos" class="hover:text-blue-100 transition font-medium flex items-center dropdown-toggle">Quiénes Somos <i class="fas fa-chevron-down ml-1"></i></a>
+                    <div class="dropdown-menu bg-white text-gray-800 shadow-lg rounded-lg mt-2 w-48">
+                        <a href="historia.html" class="block px-4 py-2 hover:bg-blue-100">Historia</a>
+                        <a href="plantelDoc.html" class="block px-4 py-2 hover:bg-blue-100">Plantel Docente</a>
+                    </div>
+                </div>
+                <div class="dropdown relative group">
+                    <a href="#carreras" class="hover:text-blue-100 transition font-medium flex items-center dropdown-toggle">Nuestras Carreras <i class="fas fa-chevron-down ml-1"></i></a>
+                    <div class="dropdown-menu bg-white text-gray-800 shadow-lg rounded-lg mt-2 w-48">
+                        <a href="telecomunicaciones.html" class="block px-4 py-2 hover:bg-blue-100">Telecomunicaciones</a>
+                        <a href="sistemas.html" class="block px-4 py-2 hover:bg-blue-100">Sistemas Informáticos</a>
+                        <a href="secretariado.html" class="block px-4 py-2 hover:bg-blue-100">Secretariado Ejecutivo</a>
+                    </div>
+                </div>
+                <a href="contactos.html" class="hover:text-blue-100 transition font-medium">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg">
+        <img src="logo_white.png" alt="Logo INTJEM" class="logo">
+    </section>
+
+    <!-- Carreras Section -->
+    <section id="carreras" class="py-16 sm:py-24 pastel-bg">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl sm:text-5xl font-bold text-center mb-12 sm:mb-16 text-blue-900">Nuestras Carreras</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+                <a href="telecomunicaciones.html" class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent flex flex-col items-center">
+                    <img src="telecomunicaciones.jpg" alt="Telecomunicaciones" class="w-full h-40 sm:h-48 object-cover rounded-t-2xl mb-6">
+                    <img src="icon_telecomunicaciones.jpg" alt="Logo Telecomunicaciones" class="career-logo rounded-full mb-4">
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Telecomunicaciones</h3>
+                    <p class="text-gray-600 text-center">Aprende a diseñar, instalar y mantener redes de comunicación modernas, preparándote para liderar en un sector en constante evolución.</p>
+                </a>
+                <a href="sistemas.html" class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent flex flex-col items-center">
+                    <img src="sistemas.jpg" alt="Sistemas Informáticos" class="w-full h-40 sm:h-48 object-cover rounded-t-2xl mb-6">
+                    <img src="icon_sistemas.jpg" alt="Logo Sistemas Informáticos" class="career-logo rounded-full mb-4">
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Sistemas Informáticos</h3>
+                    <p class="text-gray-600 text-center">Domina el desarrollo de software y la gestión de sistemas tecnológicos, abriendo puertas a la innovación en la era digital.</p>
+                </a>
+                <a href="secretariado.html" class="bg-white p-6 sm:p-8 rounded-2xl shadow-accent card-hover transition duration-300 border-accent flex flex-col items-center">
+                    <img src="secretariado.jpg" alt="Secretariado Ejecutivo" class="w-full h-40 sm:h-48 object-cover rounded-t-2xl mb-6">
+                    <img src="icon_secretariado.jpg" alt="Logo Secretariado Ejecutivo" class="career-logo rounded-full mb-4">
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Secretariado Ejecutivo</h3>
+                    <p class="text-gray-600 text-center">Desarrolla habilidades administrativas y de organización para destacar en entornos profesionales dinámicos y competitivos.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Misión - Visión - Filosofía Section -->
+    <section id="quienes-somos" class="py-16 sm:py-24 bg-blue-50">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-12 text-blue-900">Misión - Visión - Filosofía</h2>
+            <p class="text-center text-gray-700 mb-12 sm:mb-16 max-w-3xl mx-auto">
+                Formamos Profesionales Idóneos en los campos de Secretariado Ejecutivo, Sistemas Informáticos y Telecomunicaciones a nivel de Técnico Superior, con conocimientos sólidos teóricos y prácticos para que sean capaces de desenvolverse eficientemente, con solvencia y ética en el mercado laboral.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+                <div class="text-center">
+                    <i class="fas fa-trophy text-4xl sm:text-5xl text-blue-600 mb-6"></i>
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Filosofía</h3>
+                    <p class="text-gray-600">
+                        Impartir un currículo actualizado y planificado que parte de las experiencias y de las necesidades de los estudiantes y que facilite el desarrollo integral y su capacitación en la especialidad elegida.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-globe text-4xl sm:text-5xl text-blue-600 mb-6"></i>
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Misión</h3>
+                    <p class="text-gray-600">
+                        Promover una calidad educativa, arraigada en la cultura de nuestro pueblo y en nuestro tiempo. Estimular, en los estudiantes, la práctica crítica, actitud solidaria, libertad de espíritu, humildad, responsabilidad. Contribuir a la construcción de una sociedad más justa y fraterna. Formar personas capaces de transformar la sociedad con la fuerza del Evangelio.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-cogs text-4xl sm:text-5xl text-blue-600 mb-6"></i>
+                    <h3 class="text-lg sm:text-2xl font-semibold mb-4 text-blue-800">Visión</h3>
+                    <p class="text-gray-600">
+                        Promover, socialmente a los jóvenes bachilleres de escasos recursos económicos a partir de la opción por los más pobres, formando profesionales capacitados de manera teórica práctica, con un enfoque integral diáfano en los valores cristianos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="py-16 sm:py-24 pastel-bg">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl sm:text-5xl font-bold text-center mb-12 sm:mb-16 text-blue-900">Galería de fotos</h2>
+            <div class="max-w-4xl mx-auto">
+                <!-- Main Image -->
+                <div class="mb-8">
+                    <img id="main-image" src="01.jpg" alt="Main Gallery Image" class="w-full h-96 object-cover rounded-lg shadow-accent border-accent">
+                </div>
+                <!-- Thumbnails -->
+                <div class="grid grid-cols-2 sm:grid-cols-12 gap-4">
+                    <img src="02.jpg" alt="Gallery Image 1" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                    <img src="03.jpg" alt="Gallery Image 2" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                    <img src="04.jpg" alt="Gallery Image 3" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                    <img src="05.jpg" alt="Gallery Image 4" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                    <img src="06.jpg" alt="Gallery Image 5" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                    <img src="07.jpg" alt="Gallery Image 6" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                    <img src="08.jpg" alt="Gallery Image 7" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                    <img src="09.jpg" alt="Gallery Image 8" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                    <img src="10.jpg" alt="Gallery Image 9" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                    <img src="11.jpg" alt="Gallery Image 10" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                    <img src="12.jpg" alt="Gallery Image 11" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                    <img src="14.jpg" alt="Gallery Image 12" class="thumbnail w-full h-24 object-cover rounded-lg cursor-pointer transition duration-300 border border-gray-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestros Convenios Section -->
+    <section id="convenios" class="py-16 sm:py-24 bg-blue-50">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl sm:text-5xl font-bold text-center mb-12 sm:mb-16 text-blue-900">Nuestros Convenios</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 justify-items-center">
+                <div class="flex flex-col items-center">
+                    <img src="conv1.png" alt="Congregación de las Religiosas de Jesús María" class="convenio-logo mb-4">
+                    <p class="text-gray-700 text-center">Congregación de las Religiosas de Jesús María</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="conv2.png" alt="Ministerio de Educación" class="convenio-logo mb-4">
+                    <p class="text-gray-700 text-center">Ministerio de Educación - Estado Plurinacional de Bolivia</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="conv3.png" alt="DGESTTILA" class="convenio-logo mb-4">
+                    <p class="text-gray-700 text-center">DGESTTILA - Dirección General de Educación Superior Técnica, Tecnológica, Lingüística y Artística</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="conv4.png" alt="UTP - Ministerio de Educación" class="convenio-logo mb-4">
+                    <p class="text-gray-700 text-center">UTP - Unidad de Títulos Profesionales - Ministerio de Educación - Estado Plurinacional de Bolivia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-bg text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-4">Empezar</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link transition">Iniciar Sesión</a></li>
+                        <li><a href="#" class="footer-link transition">Admisión</a></li>
+                        <li><a href="#carreras" class="footer-link transition">Nuestras Carreras</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-4">Apoyo</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link transition">Preguntas Frecuentes</a></li>
+                        <li><a href="#" class="footer-link transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link transition">Términos de Servicio</a></li>
+                        <li><a href="#" class="footer-link transition">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-4">Contactos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#contacto" class="footer-link transition">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Map Placeholder -->
+            <div class="mb-8">
+                <a href="https://goo.gl/maps/fzPVWHQwZRH2" type="button" class="btn-floating btn-small btn-so index_icon_social waves-effect waves-light"><img src="mapa.png" class="w-full h-40 object-cover rounded-lg"></a>
+            </div>
+            <!-- Social Media Icons -->
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-facebook-f text-xl sm:text-2xl"></i></a>
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-twitter text-xl sm:text-2xl"></i></a>
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-instagram text-xl sm:text-2xl"></i></a>
+                <a href="#" class="text-white hover:text-blue-100"><i class="fab fa-youtube text-xl sm:text-2xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar Menu Toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.classList.toggle('active');
+            // Close all dropdowns when toggling the menu
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        }
+
+        // Dropdown Toggle on Click (for all screen sizes)
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const menu = dropdown.querySelector('.dropdown-menu');
+
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default navigation initially
+                const isActive = dropdown.classList.contains('active');
+                
+                // Close all other dropdowns
+                document.querySelectorAll('.dropdown').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('active');
+                });
+
+                // Toggle the current dropdown
+                dropdown.classList.toggle('active');
+
+                // If the dropdown was already active, navigate to the parent link
+                if (isActive) {
+                    window.location.href = toggle.getAttribute('href');
+                }
+            });
+
+            // Close dropdown when clicking an item
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    dropdown.classList.remove('active'); // Close the dropdown
+                    if (window.innerWidth < 768) {
+                        document.querySelector('.nav-menu').classList.remove('active'); // Close the mobile menu
+                    }
+                });
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            const isDropdown = e.target.closest('.dropdown');
+            if (!isDropdown) {
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
+        });
+
+        // Gallery Image Swap
+        const mainImage = document.getElementById('main-image');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', function() {
+                mainImage.src = this.src;
+                mainImage.alt = this.alt;
+            });
+        });
+    </script>
+</body>
+</html>
